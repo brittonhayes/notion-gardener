@@ -49,10 +49,12 @@ Run the application using the command: `cargo run --release`
 
 The Notion Gardener queries your specified Notion page for to-do items. It checks each item for two things:
 
-1. Whether the item is marked as completed.
-2. Whether the item contains the delete marker.
+1. The item is marked as completed
+2. The item contains the delete marker
 
 If it finds both of these to be true, the item will be pruned from the list, keeping your workspace tidy and focused.
+
+![image](https://github.com/brittonhayes/notion-gardener/assets/46035482/be689632-4cd7-4f13-9fa3-2d40ce3025b3)
 
 ## Contributing
 
