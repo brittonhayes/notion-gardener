@@ -30,8 +30,6 @@ Ensure you have Rust installed on your machine. If you don't, follow the [offici
 
 Run the application using the command: `cargo run --release`
 
-## Arguments and Environment Variables
-
 - `PAGE_ID`: The ID of the Notion page you want to use.
 - `API_TOKEN`: Your Notion integration token.
 - `DELETE_MARKER`: The marker used to identify which to-dos should be deleted (e.g., "🗑️").
