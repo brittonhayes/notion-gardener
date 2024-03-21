@@ -25,21 +25,12 @@ Ensure you have Rust installed on your machine. If you don't, follow the [offici
 2. Navigate into the cloned directory.
 3. Run `cargo build --release` to build the project.
 
-### Configuration
-
-1. Create a `.env` file in the root of the project directory.
-2. Add the following variables:
-```
-PAGE_ID=<Your Notion Page ID>
-API_TOKEN=<Your Notion Integration Token>
-DELETE_MARKER=<Your Custom Delete Marker>
-```
 
 ### 🚜 Usage
 
 Run the application using the command: `cargo run --release`
 
-## Environment Variables
+## Arguments and Environment Variables
 
 - `PAGE_ID`: The ID of the Notion page you want to use.
 - `API_TOKEN`: Your Notion integration token.
