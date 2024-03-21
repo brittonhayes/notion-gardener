@@ -5,17 +5,13 @@ This Rust-based application automates the pruning of completed tasks, keeping yo
 
 <img src="./.github/assets/logo.png" width="256">
 
-## ✨ Features
-
-- **To-Do List Management**: Automatically removes completed tasks from your Notion to-do lists.
-- **Customizable Delete Marker**: Uses a customizable delete marker for identifying tasks to delete.
-- **Easy Configuration**: Configurable through environment variables for ease of use.
+<!-- ## ✨ Features -->
+<!---->
+<!-- - **To-Do List Management**: Automatically removes completed tasks from your Notion to-do lists. -->
+<!-- - **Customizable Delete Marker**: Uses a customizable delete marker for identifying tasks to delete. -->
+<!-- - **Easy Configuration**: Configurable through environment variables for ease of use. -->
 
 ## 🌱 Getting Started
-
-To start using Notion Gardener, follow these simple steps.
-
-### Prerequisites
 
 Ensure you have Rust installed on your machine. If you don't, follow the [official Rust installation guide](https://www.rust-lang.org/tools/install).
 
@@ -44,14 +40,6 @@ The Notion Gardener queries your specified Notion page for to-do items. It check
 If it finds both of these to be true, the item will be pruned from the list, keeping your workspace tidy and focused.
 
 ![image](https://github.com/brittonhayes/notion-gardener/assets/46035482/be689632-4cd7-4f13-9fa3-2d40ce3025b3)
-
-## Contributing
-
-Contributions are welcome! If you have an idea for improving this tool or have found a bug, please open an issue or submit a pull request.
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
