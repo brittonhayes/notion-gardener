@@ -1,9 +1,9 @@
 # Notion Gardener 🪴
 
-Welcome to the Notion Garden, a minimalist tool designed to help you manage your Notion to-do lists with ease. 
+Notion Gardener is a minimalist tool designed to help you manage your Notion to-do lists with ease. 
 This Rust-based application automates the pruning of completed tasks, keeping your digital garden clean and tidy.
 
-![Notion Gardener Logo](./.github/assets/logo.png)
+<img src="./.github/assets/logo.png" width="256">
 
 ## ✨ Features
 
