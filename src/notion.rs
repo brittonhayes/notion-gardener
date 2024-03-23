@@ -11,17 +11,12 @@ impl Notion {
         Self { client, token }
     }
 
-    pub async fn get_child_blocks(
+    pub async fn search_all_pages(
         &mut self,
-        page_id: String,
-        #[allow(unused_mut)] mut cursor: Option<String>,
+        #[allow(unused_mut)] mut _cursor: Option<String>,
     ) -> Result<ListResponse, reqwest::Error> {
         self.client
-            .get(format!(
-                "https://api.notion.com/v1/blocks/{}/children",
-                page_id
-            ))
-            .query(&[("start_cursor", cursor.clone())])
+            .get("https://api.notion.com/v1/search")
             .bearer_auth(&self.token)
             .header("Notion-Version", "2022-06-28")
             .send()
@@ -30,15 +25,46 @@ impl Notion {
             .await
     }
 
+    pub async fn get_child_blocks(
+        &mut self,
+        page_id: String,
+        #[allow(unused_mut)] mut cursor: Option<String>,
+    ) -> Result<ListResponse, reqwest::Error> {
+        let response = self
+            .client
+            .get(format!(
+                "https://api.notion.com/v1/blocks/{}/children",
+                page_id
+            ))
+            .query(&[("start_cursor", cursor.clone())])
+            .bearer_auth(&self.token)
+            .header("Notion-Version", "2022-06-28")
+            .send()
+            .await
+            .unwrap()
+            .error_for_status();
+
+        match response {
+            Ok(_) => response.unwrap().json::<ListResponse>().await,
+            Err(err) => Err(err),
+        }
+    }
+
     pub async fn delete_block(&mut self, block_id: String) -> Result<Response, reqwest::Error> {
-        self.client
+        let response = self
+            .client
             .delete(format!("https://api.notion.com/v1/blocks/{}", block_id))
             .bearer_auth(&self.token)
             .header("Notion-Version", "2022-06-28")
             .send()
-            .await?
-            .json::<Response>()
             .await
+            .unwrap()
+            .error_for_status();
+
+        match response {
+            Ok(_) => response.unwrap().json::<Response>().await,
+            Err(err) => Err(err),
+        }
     }
 }
 

@@ -22,7 +22,7 @@ struct Args {
     api_token: String,
 
     /// Notion to-do delete marker
-    #[arg(short, long, env)]
+    #[arg(short, long, env, default_value = "🗑️")]
     delete_marker: String,
 }
 
@@ -51,7 +51,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     .map(|t| t.text.content)
                     .collect();
 
-                let delete_marker = "🗑️".to_string();
+                let delete_marker = args.delete_marker.to_string();
                 if to_do.checked && content.join("").contains(&delete_marker) {
                     println!("Deleting: {}", block.id);
                     notion_sdk.delete_block(block.id.to_string()).await?;
